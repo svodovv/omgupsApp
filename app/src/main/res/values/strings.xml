@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">omgupsApp</string>
+    <string name="Password">Пароль</string>
+    <string name="signIn">Вход</string>
+    <string name="login">Логин</string>
+    <string name="omgupslogo">omgupsLogo</string>
+</resources>
