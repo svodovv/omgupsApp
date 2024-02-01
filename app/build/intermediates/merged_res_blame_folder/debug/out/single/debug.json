@@ -1,86 +1,82 @@
 [
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "com.omgupsapp-merged_res-62:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.omgupsapp-main-64:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "com.omgupsapp-merged_res-62:/font_abril_fatface_regular.ttf.flat",
+        "source": "com.omgupsapp-main-64:/font/abril_fatface_regular.ttf"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "com.omgupsapp-merged_res-62:/font_montserrat_bold.ttf.flat",
+        "source": "com.omgupsapp-main-64:/font/montserrat_bold.ttf"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\font_montserrat_bold.ttf.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\font\\montserrat_bold.ttf"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.omgupsapp-merged_res-44:/drawable_logo_text.xml.flat",
-        "source": "com.omgupsapp-main-46:/drawable/logo_text.xml"
+        "merged": "com.omgupsapp-merged_res-62:/font_montserrat_regular.ttf.flat",
+        "source": "com.omgupsapp-main-64:/font/montserrat_regular.ttf"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\drawable\\ic_launcher_background.xml"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "com.omgupsapp-merged_res-62:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.omgupsapp-main-64:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\font_montserrat_regular.ttf.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\font\\montserrat_regular.ttf"
+        "merged": "com.omgupsapp-merged_res-62:/xml_backup_rules.xml.flat",
+        "source": "com.omgupsapp-main-64:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\xml\\backup_rules.xml"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "com.omgupsapp-merged_res-62:/xml_data_extraction_rules.xml.flat",
+        "source": "com.omgupsapp-main-64:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\drawable_logo_text.xml.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\drawable\\logo_text.xml"
+        "merged": "com.omgupsapp-merged_res-62:/drawable_logo_text.xml.flat",
+        "source": "com.omgupsapp-main-64:/drawable/logo_text.xml"
     },
     {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\font_abril_fatface_regular.ttf.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\font\\abril_fatface_regular.ttf"
-    },
-    {
-        "merged": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-merged_res-44:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\domovichenok\\.gradle\\daemon\\8.0\\com.omgupsapp-main-46:\\xml\\data_extraction_rules.xml"
+        "merged": "com.omgupsapp-merged_res-62:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.omgupsapp-main-64:/mipmap-hdpi/ic_launcher.webp"
     }
 ]

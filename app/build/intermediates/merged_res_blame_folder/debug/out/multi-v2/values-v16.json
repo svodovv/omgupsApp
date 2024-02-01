@@ -1,10 +1,29 @@
 {
     "logs": [
         {
-            "outputFile": "com.omgupsapp-mergeDebugResources-42:/values-v16/values-v16.xml",
+            "outputFile": "com.omgupsapp-mergeDebugResources-60:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\domovichenok\\.gradle\\caches\\transforms-3\\1d6dbb199e24be8899936a038b75ad4d\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\domovichenok\\.gradle\\caches\\transforms-3\\ff3b7ed002b141a42891e3769e3e6415\\transformed\\appcompat-1.3.1\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\domovichenok\\.gradle\\caches\\transforms-3\\ee870b8ba5d751ec29e602b3302f2ae9\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
