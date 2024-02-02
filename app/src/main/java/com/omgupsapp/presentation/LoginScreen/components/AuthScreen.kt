@@ -39,7 +39,6 @@ import androidx.navigation.compose.rememberNavController
 fun AuthScreen(
     viewModel: AuthViewModel = hiltViewModel()
 ) {
-
     val state = viewModel.state.value
 
     Column(
@@ -60,7 +59,6 @@ fun AuthScreen(
                 state = state
             )
         } else {
-
             Box(
                 modifier = Modifier
                     .weight(2f)
@@ -144,10 +142,5 @@ fun LoadingScreen(
     CircularProgressIndicator(modifier = modifier)
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    OmgupsAppTheme {
-        //AuthScreen()
-    }
-}
+
+

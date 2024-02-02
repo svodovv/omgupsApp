@@ -21,10 +21,10 @@ class GetCsrfTokenUseCase @Inject constructor(
             emit(Resource.Success(csrfToken))
             Log.d("csrfToken", csrfToken.toString())
         } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "Ошибка в http "))
+            emit(Resource.Error(e.localizedMessage ?: ""))
             Log.e("csrfToken", e.localizedMessage ?: "Error csrfToken http in GetCsrfTokenUSeCase")
         } catch (e: IOException) {
-            emit(Resource.Error(e.localizedMessage ?: "Проверьте свое подключение к интернету"))
+            emit(Resource.Error(e.localizedMessage ?: ""))
             Log.e("csrfToken", e.localizedMessage ?: "Error csrfToken IO in GetCsrfTokenUSeCase")
         }
     }
