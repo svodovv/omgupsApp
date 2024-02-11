@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.omgupsapp-mergeDebugResources-60:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.omgupsapp-mergeDebugResources-53:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "C:\\Users\\domovichenok\\.gradle\\caches\\transforms-3\\819971d58dc6547ce38700c1a297213c\\transformed\\material3-1.1.2\\res\\values-en-rCA\\values-en-rCA.xml",

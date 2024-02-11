@@ -9,6 +9,7 @@
         android:targetSdkVersion="33" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <permission
         android:name="com.omgupsapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -29,7 +30,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.OmgupsApp" >
+        android:theme="@style/Theme.OmgupsApp"
+        android:usesCleartextTraffic="true" >
         <activity
             android:name="com.omgupsapp.presentation.MainActivity"
             android:exported="true"
@@ -41,6 +43,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="androidx.compose.ui.tooling.PreviewActivity"
+            android:exported="true" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
@@ -56,10 +61,6 @@
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>
-
-        <activity
-            android:name="androidx.compose.ui.tooling.PreviewActivity"
-            android:exported="true" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"

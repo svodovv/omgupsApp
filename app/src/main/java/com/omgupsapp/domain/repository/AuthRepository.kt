@@ -1,7 +1,7 @@
 package com.omgupsapp.domain.repository
 
-import com.omgupsapp.data.remote.dto.CsrfTokenDto
-
 interface AuthRepository {
-    suspend fun getСsrfToken(): CsrfTokenDto
+    suspend fun tokenExists(): Boolean
+
+    suspend fun authentication(login: String, password: String): Boolean
 }

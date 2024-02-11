@@ -9,11 +9,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
@@ -24,22 +24,19 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.omgupsapp.R
 import com.omgupsapp.presentation.LoginScreen.AuthState
 import com.omgupsapp.presentation.LoginScreen.AuthViewModel
-import com.omgupsapp.presentation.theme.OmgupsAppTheme
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.compose.rememberNavController
 
 
 @Composable
 fun AuthScreen(
     viewModel: AuthViewModel = hiltViewModel()
 ) {
-    val state = viewModel.state.value
+    val stateToken = viewModel.stateToken.value
+    val stateAuthentication = viewModel.stateAuthentication.value
 
     Column(
         modifier = Modifier
@@ -48,17 +45,8 @@ fun AuthScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = CenterHorizontally
     ) {
-        if (state.isLoading) {
-            LoadingScreen(modifier = Modifier.align(CenterHorizontally))
-        } else if (state.error.isNotBlank()) {
-            ErrorScreen(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp)
-                    .align(CenterHorizontally),
-                state = state
-            )
-        } else {
+
+        if (stateToken.csrfToken) {
             Box(
                 modifier = Modifier
                     .weight(2f)
@@ -78,7 +66,7 @@ fun AuthScreen(
             ) {
 
                 OutlinedTextField(
-                    value = state.login,
+                    value = stateAuthentication.login,
                     onValueChange = { viewModel.onChangeLogin(it) },
                     label = { Text(text = stringResource(R.string.login)) },
                     keyboardOptions = KeyboardOptions.Default.copy(
@@ -91,7 +79,7 @@ fun AuthScreen(
 
                 // Password input
                 OutlinedTextField(
-                    value = state.password,
+                    value = stateAuthentication.password,
                     onValueChange = { viewModel.onChangePassword(it) },
                     label = { Text(text = stringResource(R.string.Password)) },
                     keyboardOptions = KeyboardOptions.Default.copy(
@@ -106,7 +94,7 @@ fun AuthScreen(
                 // Login button
                 Button(
                     onClick = {
-                        // Handle login button click
+                        viewModel.userAuthenticated()
                     }, modifier = Modifier
                         .padding(8.dp)
                         .width(200.dp)
@@ -114,9 +102,17 @@ fun AuthScreen(
                     Text(stringResource(R.string.signIn))
                 }
             }
+        } else if (stateToken.isLoading) {
+            LoadingScreen(modifier = Modifier.align(CenterHorizontally))
+        } else {
+            ErrorScreen(
+                modifier = Modifier.fillMaxWidth().padding(20.dp).align(CenterHorizontally),
+                state = stateToken
+            )
         }
     }
 }
+
 
 @Composable
 fun ErrorScreen(
@@ -125,7 +121,7 @@ fun ErrorScreen(
     Box(modifier = modifier) {
         Text(
             text = state.error,
-            color = MaterialTheme.colors.error,
+            color = MaterialTheme.colorScheme.error,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .fillMaxWidth()

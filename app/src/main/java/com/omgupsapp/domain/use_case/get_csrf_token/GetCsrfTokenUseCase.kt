@@ -2,8 +2,6 @@ package com.omgupsapp.domain.use_case.get_csrf_token
 
 import android.util.Log
 import com.omgupsapp.common.Resource
-import com.omgupsapp.data.remote.dto.toCsrfToken
-import com.omgupsapp.domain.model.CsrfToken
 import com.omgupsapp.domain.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -14,17 +12,17 @@ import javax.inject.Inject
 class GetCsrfTokenUseCase @Inject constructor(
     private val repository: AuthRepository
 ) {
-    operator fun invoke(): Flow<Resource<CsrfToken>> = flow {
+    operator fun invoke(): Flow<Resource<Boolean>> = flow {
         try {
             emit(Resource.Loading())
-            val csrfToken = repository.getСsrfToken().toCsrfToken()
-            emit(Resource.Success(csrfToken))
-            Log.d("csrfToken", csrfToken.toString())
+            val tokenExists = repository.tokenExists()
+            emit(Resource.Success(tokenExists))
+
         } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: ""))
+            emit(Resource.Error(e.localizedMessage ?: "GetCsrfTokenUseCase error in http"))
             Log.e("csrfToken", e.localizedMessage ?: "Error csrfToken http in GetCsrfTokenUSeCase")
         } catch (e: IOException) {
-            emit(Resource.Error(e.localizedMessage ?: ""))
+            emit(Resource.Error(e.localizedMessage ?: "GetCsrfTokenUseCase error in IO"))
             Log.e("csrfToken", e.localizedMessage ?: "Error csrfToken IO in GetCsrfTokenUSeCase")
         }
     }
