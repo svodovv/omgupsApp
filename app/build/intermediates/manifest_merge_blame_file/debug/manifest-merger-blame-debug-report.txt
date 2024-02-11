@@ -57,8 +57,8 @@
 34-->D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:9:9-44
 35        <activity
 35-->D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:20:9-30:20
-36            android:name="com.omgupsapp.presentation.MainActivity"
-36-->D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:21:13-54
+36            android:name="com.omgupsapp.presentation.activity.MainActivity"
+36-->D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:21:13-63
 37            android:exported="true"
 37-->D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:22:13-36
 38            android:label="@string/app_name"

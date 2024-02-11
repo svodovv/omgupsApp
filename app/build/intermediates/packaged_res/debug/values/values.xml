@@ -7,6 +7,8 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
+    <string name="ErrorInLoginOrPassword">Неверный логин или пароль</string>
+    <string name="LoginOrPasswordIsNull">Пожалуйста, заполните оба поля для входа</string>
     <string name="Password">Пароль</string>
     <string name="app_name">omgupsApp</string>
     <string name="login">Логин</string>

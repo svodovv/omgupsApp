@@ -33,7 +33,7 @@
         android:theme="@style/Theme.OmgupsApp"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.omgupsapp.presentation.MainActivity"
+            android:name="com.omgupsapp.presentation.activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.OmgupsApp" >

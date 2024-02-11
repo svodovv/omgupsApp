@@ -230,7 +230,9 @@ fun OmgupsAppTheme(
     }
 
     val Shapes = Shapes(
-        small = RoundedCornerShape(50.dp),
+        small = RoundedCornerShape(10.dp),
+        medium = RoundedCornerShape(30.dp),
+        large = RoundedCornerShape(50.dp)
     )
     MaterialTheme(
         colorScheme = colorScheme,

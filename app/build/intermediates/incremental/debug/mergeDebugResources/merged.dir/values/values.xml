@@ -283,6 +283,8 @@
     <integer name="cancel_button_image_alpha">127</integer>
     <integer name="config_tooltipAnimTime">150</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="ErrorInLoginOrPassword">Неверный логин или пароль</string>
+    <string name="LoginOrPasswordIsNull">Пожалуйста, заполните оба поля для входа</string>
     <string name="Password">Пароль</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>

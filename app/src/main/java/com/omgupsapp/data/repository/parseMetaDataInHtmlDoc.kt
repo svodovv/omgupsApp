@@ -11,3 +11,7 @@ internal fun parseMetaDataInHtmlDoc(htmlContent: String, metaName: String): Stri
         "Error in parsing fun"
     }
 }
+
+internal fun parseTitleInHtmlDoc(htmlContent: String): String? {
+    return Jsoup.parse(htmlContent).title()
+}

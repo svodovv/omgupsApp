@@ -15,6 +15,8 @@ font montserrat_bold
 font montserrat_regular
 mipmap ic_launcher
 mipmap ic_launcher_round
+string ErrorInLoginOrPassword
+string LoginOrPasswordIsNull
 string Password
 string app_name
 string login

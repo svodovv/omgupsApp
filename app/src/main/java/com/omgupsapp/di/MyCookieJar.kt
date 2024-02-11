@@ -3,16 +3,18 @@ package com.omgupsapp.di
 import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
+import javax.inject.Inject
 
-class MyCookieJar : CookieJar {
+class MyCookieJar @Inject constructor() : CookieJar {
     private val cookieStore = HashMap<String, MutableList<Cookie>>()
 
     override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
-        cookieStore[url.host] = cookies.toMutableList()
+        val hostCookies = cookieStore[url.host] ?: ArrayList()
+        hostCookies.addAll(cookies)
+        cookieStore[url.host] = hostCookies
     }
 
     override fun loadForRequest(url: HttpUrl): List<Cookie> {
-        val cookies = cookieStore[url.host]
-        return cookies ?: ArrayList()
+        return cookieStore[url.host] ?: ArrayList()
     }
 }

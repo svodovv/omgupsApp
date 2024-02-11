@@ -60,6 +60,8 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1] C:\Users\domo
 MERGED from [androidx.compose.ui:ui:1.4.1] C:\Users\domovichenok\.gradle\caches\transforms-3\b2e9aa038eb15ffe9b1483d06841e0cb\transformed\ui-1.4.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.runtime:runtime-saveable:1.4.1] C:\Users\domovichenok\.gradle\caches\transforms-3\c0694fddfac12e3c02df2e15b737f09d\transformed\runtime-saveable-1.4.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.runtime:runtime:1.4.1] C:\Users\domovichenok\.gradle\caches\transforms-3\cdff117226e3a31e259d9b8899f386c3\transformed\runtime-1.4.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\domovichenok\.gradle\caches\transforms-3\a5d835842334fceb4282b3a4175eadc9\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\domovichenok\.gradle\caches\transforms-3\ed3ef423aaff2c1e0cf6a962fa9e5c0c\transformed\datastore-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\domovichenok\.gradle\caches\transforms-3\84b4a131b8312230bdad7f00fc11de69\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\domovichenok\.gradle\caches\transforms-3\bdc5959eefc8b9d57d45bfff29c619b2\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\domovichenok\.gradle\caches\transforms-3\9bacd97d088815f281ee452a473b46ee\transformed\profileinstaller-1.3.0\AndroidManifest.xml:17:1-55:12
@@ -136,7 +138,7 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\domovichenok\.grad
 		ADDED from D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:9:9-44
 	android:name
 		ADDED from D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:18:9-42
-activity#com.omgupsapp.presentation.MainActivity
+activity#com.omgupsapp.presentation.activity.MainActivity
 ADDED from D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:20:9-30:20
 	android:label
 		ADDED from D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:23:13-45
@@ -145,7 +147,7 @@ ADDED from D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:20:9-30:20
 	android:theme
 		ADDED from D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:24:13-51
 	android:name
-		ADDED from D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:21:13-54
+		ADDED from D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:21:13-63
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from D:\AndoidLearn\omgupsApp\app\src\main\AndroidManifest.xml:25:13-29:29
 action#android.intent.action.MAIN
@@ -272,6 +274,10 @@ MERGED from [androidx.compose.runtime:runtime-saveable:1.4.1] C:\Users\domoviche
 MERGED from [androidx.compose.runtime:runtime-saveable:1.4.1] C:\Users\domovichenok\.gradle\caches\transforms-3\c0694fddfac12e3c02df2e15b737f09d\transformed\runtime-saveable-1.4.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.runtime:runtime:1.4.1] C:\Users\domovichenok\.gradle\caches\transforms-3\cdff117226e3a31e259d9b8899f386c3\transformed\runtime-1.4.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.runtime:runtime:1.4.1] C:\Users\domovichenok\.gradle\caches\transforms-3\cdff117226e3a31e259d9b8899f386c3\transformed\runtime-1.4.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\domovichenok\.gradle\caches\transforms-3\a5d835842334fceb4282b3a4175eadc9\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] C:\Users\domovichenok\.gradle\caches\transforms-3\a5d835842334fceb4282b3a4175eadc9\transformed\datastore-preferences-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\domovichenok\.gradle\caches\transforms-3\ed3ef423aaff2c1e0cf6a962fa9e5c0c\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] C:\Users\domovichenok\.gradle\caches\transforms-3\ed3ef423aaff2c1e0cf6a962fa9e5c0c\transformed\datastore-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\domovichenok\.gradle\caches\transforms-3\84b4a131b8312230bdad7f00fc11de69\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\domovichenok\.gradle\caches\transforms-3\84b4a131b8312230bdad7f00fc11de69\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\domovichenok\.gradle\caches\transforms-3\bdc5959eefc8b9d57d45bfff29c619b2\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44

@@ -1,6 +1,7 @@
 package com.omgupsapp.di
 
 import com.omgupsapp.common.Constants
+import com.omgupsapp.data.DataStoreManager
 import com.omgupsapp.data.remote.AuthApi
 import com.omgupsapp.data.repository.AuthRepositoryImpl
 import com.omgupsapp.domain.repository.AuthRepository
@@ -12,7 +13,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 
@@ -38,20 +38,25 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun authApi(): AuthApi {
+    fun retrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .client(provideOkHttpClient(provideMyCookieJar()))
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
-            .create(AuthApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun authApi(): AuthApi {
+        return retrofit().create(AuthApi::class.java)
     }
 
 
     @Provides
     @Singleton
-    fun provideAuthRepository(api: AuthApi): AuthRepository {
-        return AuthRepositoryImpl(api)
+    fun provideAuthRepository(api: AuthApi, dataStoreManager: DataStoreManager): AuthRepository {
+        return AuthRepositoryImpl(api,dataStoreManager)
     }
 
 

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.omgupsapp-mergeDebugResources-53:/values-be/values-be.xml",
+            "outputFile": "com.omgupsapp-mergeDebugResources-55:/values-be/values-be.xml",
             "map": [
                 {
                     "source": "C:\\Users\\domovichenok\\.gradle\\caches\\transforms-3\\ee870b8ba5d751ec29e602b3302f2ae9\\transformed\\core-1.9.0\\res\\values-be\\values-be.xml",

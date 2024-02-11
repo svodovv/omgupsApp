@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.omgupsapp-mergeDebugResources-53:/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "com.omgupsapp-mergeDebugResources-55:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
                     "source": "C:\\Users\\domovichenok\\.gradle\\caches\\transforms-3\\b2e9aa038eb15ffe9b1483d06841e0cb\\transformed\\ui-1.4.1\\res\\values-en-rAU\\values-en-rAU.xml",
