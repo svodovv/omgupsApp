@@ -17,4 +17,5 @@ class MyCookieJar @Inject constructor() : CookieJar {
     override fun loadForRequest(url: HttpUrl): List<Cookie> {
         return cookieStore[url.host] ?: ArrayList()
     }
+
 }

@@ -3,8 +3,11 @@ package com.omgupsapp.di
 import com.omgupsapp.common.Constants
 import com.omgupsapp.data.DataStoreManager
 import com.omgupsapp.data.remote.AuthApi
+import com.omgupsapp.data.remote.LogoutApi
 import com.omgupsapp.data.repository.AuthRepositoryImpl
+import com.omgupsapp.data.repository.LogoutRepositoryImpl
 import com.omgupsapp.domain.repository.AuthRepository
+import com.omgupsapp.domain.repository.LogoutRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,11 +42,9 @@ object AppModule {
     @Provides
     @Singleton
     fun retrofit(): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+        return Retrofit.Builder().baseUrl(Constants.BASE_URL)
             .client(provideOkHttpClient(provideMyCookieJar()))
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .build()
+            .addConverterFactory(ScalarsConverterFactory.create()).build()
     }
 
     @Provides
@@ -55,8 +56,26 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideAuthRepository(api: AuthApi, dataStoreManager: DataStoreManager): AuthRepository {
-        return AuthRepositoryImpl(api,dataStoreManager)
+    fun provideAuthRepository(
+        api: AuthApi,
+        dataStoreManager: DataStoreManager
+    ): AuthRepository {
+        return AuthRepositoryImpl(api, dataStoreManager)
+    }
+
+    @Provides
+    @Singleton
+    fun logoutApi(): LogoutApi {
+        return retrofit().create(LogoutApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLogoutRepository(
+        api: LogoutApi,
+        dataStoreManager: DataStoreManager
+    ): LogoutRepository {
+        return LogoutRepositoryImpl(api = api, dataStoreManager = dataStoreManager)
     }
 
 

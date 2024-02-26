@@ -1,4 +1,4 @@
-package com.omgupsapp.domain.use_case.get_csrf_token
+package com.omgupsapp.domain.use_case.login
 
 import android.util.Log
 import com.omgupsapp.common.Resource
@@ -14,6 +14,7 @@ class GetCsrfTokenUseCase @Inject constructor(
 ) {
     operator fun invoke(): Flow<Resource<Boolean>> = flow {
         try {
+
             emit(Resource.Loading())
             val tokenExists = repository.tokenExists()
             emit(Resource.Success(tokenExists))

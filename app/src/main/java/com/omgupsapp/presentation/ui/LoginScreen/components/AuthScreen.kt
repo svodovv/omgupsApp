@@ -32,39 +32,40 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.omgupsapp.R
 import com.omgupsapp.presentation.Screen
-import com.omgupsapp.presentation.ui.LoginScreen.AuthState
 import com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel
-import com.omgupsapp.presentation.theme.OmgupsAppTheme
-import com.omgupsapp.presentation.ui.userProfileScreen.UserProfileScreen
+import com.omgupsapp.presentation.ui.userProfileScreen.composable.ErrorScreen
+import com.omgupsapp.presentation.ui.userProfileScreen.composable.LoadingScreen
 
 
 @Composable
 fun AuthScreen(
-    viewModel: AuthViewModel = hiltViewModel(),
-    navController: NavController
+    viewModel: AuthViewModel = hiltViewModel(), navController: NavController
 ) {
     val stateToken = viewModel.stateToken.value
     val stateAuthentication = viewModel.stateAuthentication.value
 
     var showError by remember { mutableStateOf(false) }
 
+    if (stateToken.csrfToken) {
+        if (stateAuthentication.isLoading && !showError) {
+            Box( modifier = Modifier
+                .fillMaxSize()) {
+                LoadingScreen(modifier = Modifier.align(Center))
+            }
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = CenterHorizontally
+        ) {
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = CenterHorizontally
-    ) {
-
-        if (stateToken.csrfToken) {
             Box(
                 modifier = Modifier
                     .weight(2f)
@@ -91,6 +92,7 @@ fun AuthScreen(
                         viewModel.userStateAuth()
                         showError = false
                     },
+
                     label = {
                         Text(
                             text = stringResource(R.string.login),
@@ -119,6 +121,7 @@ fun AuthScreen(
                         viewModel.userStateAuth()
                         showError = false
                     },
+
                     label = {
                         Text(
                             text = stringResource(R.string.Password),
@@ -146,13 +149,12 @@ fun AuthScreen(
                             text = stringResource(R.string.ErrorInLoginOrPassword),
                             color = MaterialTheme.colorScheme.error,
                         )
-                    }else if (showError){
+                    } else if (showError) {
                         Text(
                             text = stringResource(R.string.LoginOrPasswordIsNull),
                             color = MaterialTheme.colorScheme.error,
                         )
-                    }else
-                        Spacer(modifier = Modifier.padding(8.dp))
+                    } else Spacer(modifier = Modifier.padding(8.dp))
                 }
 
 
@@ -161,43 +163,60 @@ fun AuthScreen(
                     onClick = {
                         if (stateAuthentication.login.isNotBlank() && stateAuthentication.password.isNotBlank()) {
                             viewModel.userAuthenticated()
-                        }else
-                            showError = true
-                    },
-                    modifier = Modifier
+                        } else showError = true
+                    }, modifier = Modifier
                         .padding(8.dp)
-                        .width(200.dp)
+                        .width(200.dp),
+                    enabled = !stateAuthentication.isLoading
                 ) {
                     Text(stringResource(R.string.signIn))
                 }
+                LaunchedEffect(stateAuthentication) {
+                    if (stateAuthentication.userAuthenticated == true) {
+                        navController.navigate(Screen.UserProfile.route)
+                    }
+                    else if(stateAuthentication.userAuthenticated == false){
+                        viewModel.isNotLoading()
+                    }
+                }
             }
-        } else if (stateToken.isLoading) {
+        }
+    } else if (stateToken.isLoading) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = CenterHorizontally
+        ) {
             LoadingScreen(modifier = Modifier.align(CenterHorizontally))
-        } else {
+        }
+    } else {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = CenterHorizontally
+        ) {
             ErrorScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(20.dp)
                     .align(CenterHorizontally),
-                state = stateToken
+                textError = stateToken.error
             )
-        }
-        LaunchedEffect(stateAuthentication.userAuthenticated) {
-            if (stateAuthentication.userAuthenticated == true) {
-                navController.navigate(Screen.UserProfile.route)
-            }
         }
     }
 }
 
-
 @Composable
 fun ErrorScreen(
-    modifier: Modifier, state: AuthState
+    modifier: Modifier, textError: String
 ) {
     Box(modifier = modifier) {
         Text(
-            text = state.error,
+            text = textError,
             color = MaterialTheme.colorScheme.error,
             textAlign = TextAlign.Center,
             modifier = Modifier
@@ -213,21 +232,5 @@ fun LoadingScreen(
     modifier: Modifier,
 ) {
     CircularProgressIndicator(modifier = modifier)
-}
-
-@Preview
-@Composable
-fun ErrorScreenPreview(){
-    OmgupsAppTheme {
-        ErrorScreen(modifier = Modifier, state = AuthState(csrfToken = false))
-    }
-}
-
-@Preview
-@Composable
-fun AuthScreenPreview(){
-    OmgupsAppTheme {
-        AuthScreen(navController = rememberNavController())
-    }
 }
 

@@ -12,7 +12,7 @@ import com.omgupsapp.data.DataStoreManager
 import com.omgupsapp.presentation.NavigationGroup
 import com.omgupsapp.presentation.Screen
 import com.omgupsapp.presentation.ui.LoginScreen.components.AuthScreen
-import com.omgupsapp.presentation.ui.userProfileScreen.UserProfileScreen
+import com.omgupsapp.presentation.ui.userProfileScreen.composable.LogoutScreen
 
 
 @Composable
@@ -28,11 +28,11 @@ fun NavControllerComposable(navController: NavHostController, dataStoreManager: 
         }
     }
 
-    val startDestination = if (isLoggedIn.value) NavigationGroup.HomeScreens.route
+    val startDestination = if (!isLoggedIn.value) NavigationGroup.HomeScreens.route
     else NavigationGroup.AuthGroup.route
 
     NavHost(
-        navController = navController, startDestination = startDestination
+        navController = navController, startDestination = NavigationGroup.AuthGroup.route
     ) {
 
         navigation(
@@ -50,7 +50,7 @@ fun NavControllerComposable(navController: NavHostController, dataStoreManager: 
             startDestination = Screen.UserProfile.route, route = NavigationGroup.HomeScreens.route
         ) {
             composable(route = Screen.UserProfile.route) {
-                UserProfileScreen()
+                LogoutScreen(navController = navController)
             }
         }
     }

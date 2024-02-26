@@ -15,12 +15,14 @@ class AuthenticationUseCase @Inject constructor(
         login: String, password: String
     ): Flow<Resource<Boolean>> = flow {
         try {
+
             emit(Resource.Loading())
             val userAuthenticated = repository.authentication(
                 login = login,
                 password = password
             )
             emit(Resource.Success(userAuthenticated))
+
         } catch (e: HttpException) {
             emit(Resource.Error(e.localizedMessage ?: "LoginUseCase error in http"))
             Log.e("csrfToken", e.localizedMessage ?: "Error login http in LoginUseCase")
