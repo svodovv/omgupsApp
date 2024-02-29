@@ -24,7 +24,7 @@ class AuthenticationUseCase @Inject constructor(
             emit(Resource.Success(userAuthenticated))
 
         } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "LoginUseCase error in http"))
+            emit(Resource.Error("Ошибка подключения к интернету, возможно, вызвана активным VPN-сервисом."))
             Log.e("csrfToken", e.localizedMessage ?: "Error login http in LoginUseCase")
         } catch (e: java.io.IOException) {
             emit(Resource.Error(e.localizedMessage ?: "LoginUseCase error in IO"))

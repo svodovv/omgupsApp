@@ -3,11 +3,8 @@ package com.omgupsapp.di;
 import com.omgupsapp.common.Constants;
 import com.omgupsapp.data.DataStoreManager;
 import com.omgupsapp.data.remote.AuthApi;
-import com.omgupsapp.data.remote.LogoutApi;
 import com.omgupsapp.data.repository.AuthRepositoryImpl;
-import com.omgupsapp.data.repository.LogoutRepositoryImpl;
 import com.omgupsapp.domain.repository.AuthRepository;
-import com.omgupsapp.domain.repository.LogoutRepository;
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
@@ -19,7 +16,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 import javax.inject.Singleton;
 
 @dagger.Module
-@kotlin.Metadata(mv = {1, 8, 0}, k = 1, xi = 48, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\b\u00c7\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J\b\u0010\u0003\u001a\u00020\u0004H\u0007J\b\u0010\u0005\u001a\u00020\u0006H\u0007J\u0018\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\u00042\u0006\u0010\n\u001a\u00020\u000bH\u0007J\u0018\u0010\f\u001a\u00020\r2\u0006\u0010\t\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000bH\u0007J\b\u0010\u000e\u001a\u00020\u000fH\u0007J\u0010\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u000fH\u0007J\b\u0010\u0013\u001a\u00020\u0014H\u0007\u00a8\u0006\u0015"}, d2 = {"Lcom/omgupsapp/di/AppModule;", "", "()V", "authApi", "Lcom/omgupsapp/data/remote/AuthApi;", "logoutApi", "Lcom/omgupsapp/data/remote/LogoutApi;", "provideAuthRepository", "Lcom/omgupsapp/domain/repository/AuthRepository;", "api", "dataStoreManager", "Lcom/omgupsapp/data/DataStoreManager;", "provideLogoutRepository", "Lcom/omgupsapp/domain/repository/LogoutRepository;", "provideMyCookieJar", "Lcom/omgupsapp/di/MyCookieJar;", "provideOkHttpClient", "Lokhttp3/OkHttpClient;", "cookieJar", "retrofit", "Lretrofit2/Retrofit;", "app_debug"})
+@kotlin.Metadata(mv = {1, 8, 0}, k = 1, xi = 48, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\b\u00c7\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J\b\u0010\u0003\u001a\u00020\u0004H\u0007J\u0018\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0007J\b\u0010\n\u001a\u00020\u000bH\u0007J\u0010\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000bH\u0007J\b\u0010\u000f\u001a\u00020\u0010H\u0007\u00a8\u0006\u0011"}, d2 = {"Lcom/omgupsapp/di/AppModule;", "", "()V", "authApi", "Lcom/omgupsapp/data/remote/AuthApi;", "provideAuthRepository", "Lcom/omgupsapp/domain/repository/AuthRepository;", "api", "dataStoreManager", "Lcom/omgupsapp/data/DataStoreManager;", "provideMyCookieJar", "Lcom/omgupsapp/di/MyCookieJar;", "provideOkHttpClient", "Lokhttp3/OkHttpClient;", "cookieJar", "retrofit", "Lretrofit2/Retrofit;", "app_debug"})
 @dagger.hilt.InstallIn(value = {dagger.hilt.components.SingletonComponent.class})
 public final class AppModule {
     @org.jetbrains.annotations.NotNull
@@ -63,22 +60,6 @@ public final class AppModule {
     @org.jetbrains.annotations.NotNull
     public final com.omgupsapp.domain.repository.AuthRepository provideAuthRepository(@org.jetbrains.annotations.NotNull
     com.omgupsapp.data.remote.AuthApi api, @org.jetbrains.annotations.NotNull
-    com.omgupsapp.data.DataStoreManager dataStoreManager) {
-        return null;
-    }
-    
-    @dagger.Provides
-    @javax.inject.Singleton
-    @org.jetbrains.annotations.NotNull
-    public final com.omgupsapp.data.remote.LogoutApi logoutApi() {
-        return null;
-    }
-    
-    @dagger.Provides
-    @javax.inject.Singleton
-    @org.jetbrains.annotations.NotNull
-    public final com.omgupsapp.domain.repository.LogoutRepository provideLogoutRepository(@org.jetbrains.annotations.NotNull
-    com.omgupsapp.data.remote.LogoutApi api, @org.jetbrains.annotations.NotNull
     com.omgupsapp.data.DataStoreManager dataStoreManager) {
         return null;
     }

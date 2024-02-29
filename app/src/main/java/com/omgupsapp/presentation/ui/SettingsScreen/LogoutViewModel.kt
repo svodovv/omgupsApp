@@ -1,4 +1,4 @@
-package com.omgupsapp.presentation.ui.userProfileScreen
+package com.omgupsapp.presentation.ui.SettingsScreen
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

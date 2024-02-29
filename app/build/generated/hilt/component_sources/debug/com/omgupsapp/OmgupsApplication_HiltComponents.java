@@ -4,7 +4,6 @@ import com.omgupsapp.di.AppModule;
 import com.omgupsapp.di.DataStoreModule;
 import com.omgupsapp.presentation.activity.MainActivity_GeneratedInjector;
 import com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel_HiltModules;
-import com.omgupsapp.presentation.ui.userProfileScreen.LogoutViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
 import dagger.Module;
@@ -158,7 +157,6 @@ public final class OmgupsApplication_HiltComponents {
       modules = {
           AuthViewModel_HiltModules.KeyModule.class,
           HiltWrapper_ActivityRetainedComponentManager_LifecycleModule.class,
-          LogoutViewModel_HiltModules.KeyModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class
       }
@@ -197,8 +195,7 @@ public final class OmgupsApplication_HiltComponents {
   @Subcomponent(
       modules = {
           AuthViewModel_HiltModules.BindsModule.class,
-          HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
-          LogoutViewModel_HiltModules.BindsModule.class
+          HiltWrapper_HiltViewModelFactory_ViewModelModule.class
       }
   )
   @ViewModelScoped

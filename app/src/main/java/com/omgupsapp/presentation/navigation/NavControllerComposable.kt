@@ -12,7 +12,10 @@ import com.omgupsapp.data.DataStoreManager
 import com.omgupsapp.presentation.NavigationGroup
 import com.omgupsapp.presentation.Screen
 import com.omgupsapp.presentation.ui.LoginScreen.components.AuthScreen
-import com.omgupsapp.presentation.ui.userProfileScreen.composable.LogoutScreen
+import com.omgupsapp.presentation.ui.homeScreen.components.HomeScreen
+import com.omgupsapp.presentation.ui.SettingsScreen.LogoutScreen
+import com.omgupsapp.presentation.ui.SheduleScreen.ScheduleScreen
+import com.omgupsapp.presentation.ui.userProfileScreen.composable.UserProfileScreen
 
 
 @Composable
@@ -28,11 +31,11 @@ fun NavControllerComposable(navController: NavHostController, dataStoreManager: 
         }
     }
 
-    val startDestination = if (!isLoggedIn.value) NavigationGroup.HomeScreens.route
+    val startDestination = if (isLoggedIn.value) NavigationGroup.HomeScreens.route
     else NavigationGroup.AuthGroup.route
 
     NavHost(
-        navController = navController, startDestination = NavigationGroup.AuthGroup.route
+        navController = navController, startDestination = startDestination
     ) {
 
         navigation(
@@ -47,10 +50,19 @@ fun NavControllerComposable(navController: NavHostController, dataStoreManager: 
              */
         }
         navigation(
-            startDestination = Screen.UserProfile.route, route = NavigationGroup.HomeScreens.route
+            startDestination = Screen.HomeScreen.route, route = NavigationGroup.HomeScreens.route
         ) {
-            composable(route = Screen.UserProfile.route) {
+            composable(route = Screen.LogOutScreen.route) {
                 LogoutScreen(navController = navController)
+            }
+            composable(route = Screen.HomeScreen.route){
+                HomeScreen(navController = navController)
+            }
+            composable(route = Screen.ScheduleScreen.route){
+                ScheduleScreen(navController = navController)
+            }
+            composable(route = Screen.UserProfileScreen.route){
+                UserProfileScreen(navController = navController)
             }
         }
     }

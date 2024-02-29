@@ -1,4 +1,4 @@
-package com.omgupsapp.presentation.ui.userProfileScreen
+package com.omgupsapp.presentation.ui.SettingsScreen
 
 data class LogoutState (
     val isLoading: Boolean = false,

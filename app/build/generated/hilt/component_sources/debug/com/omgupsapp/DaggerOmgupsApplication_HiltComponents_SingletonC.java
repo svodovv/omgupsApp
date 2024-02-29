@@ -8,25 +8,18 @@ import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 import com.omgupsapp.data.DataStoreManager;
 import com.omgupsapp.data.remote.AuthApi;
-import com.omgupsapp.data.remote.LogoutApi;
 import com.omgupsapp.di.AppModule;
 import com.omgupsapp.di.AppModule_AuthApiFactory;
-import com.omgupsapp.di.AppModule_LogoutApiFactory;
 import com.omgupsapp.di.AppModule_ProvideAuthRepositoryFactory;
-import com.omgupsapp.di.AppModule_ProvideLogoutRepositoryFactory;
 import com.omgupsapp.di.DataStoreModule;
 import com.omgupsapp.di.DataStoreModule_ProvideDataStoreManagerFactory;
 import com.omgupsapp.domain.repository.AuthRepository;
-import com.omgupsapp.domain.repository.LogoutRepository;
+import com.omgupsapp.domain.use_case.get_csrf_token.GetCsrfTokenUseCase;
 import com.omgupsapp.domain.use_case.login.AuthenticationUseCase;
-import com.omgupsapp.domain.use_case.login.GetCsrfTokenUseCase;
-import com.omgupsapp.domain.use_case.logout.LogoutUseCase;
 import com.omgupsapp.presentation.activity.MainActivity;
 import com.omgupsapp.presentation.activity.MainActivity_MembersInjector;
 import com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel;
 import com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel_HiltModules_KeyModule_ProvideFactory;
-import com.omgupsapp.presentation.ui.userProfileScreen.LogoutViewModel;
-import com.omgupsapp.presentation.ui.userProfileScreen.LogoutViewModel_HiltModules_KeyModule_ProvideFactory;
 import dagger.hilt.android.ActivityRetainedLifecycle;
 import dagger.hilt.android.ViewModelLifecycle;
 import dagger.hilt.android.flags.HiltWrapper_FragmentGetContextFix_FragmentGetContextFixModule;
@@ -44,9 +37,7 @@ import dagger.hilt.android.internal.modules.ApplicationContextModule;
 import dagger.hilt.android.internal.modules.ApplicationContextModule_ProvideApplicationFactory;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
-import dagger.internal.MapBuilder;
 import dagger.internal.Preconditions;
-import dagger.internal.SetBuilder;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
@@ -401,7 +392,7 @@ public final class DaggerOmgupsApplication_HiltComponents_SingletonC {
 
     @Override
     public Set<String> getViewModelKeys() {
-      return SetBuilder.<String>newSetBuilder(2).add(AuthViewModel_HiltModules_KeyModule_ProvideFactory.provide()).add(LogoutViewModel_HiltModules_KeyModule_ProvideFactory.provide()).build();
+      return Collections.<String>singleton(AuthViewModel_HiltModules_KeyModule_ProvideFactory.provide());
     }
 
     @Override
@@ -434,8 +425,6 @@ public final class DaggerOmgupsApplication_HiltComponents_SingletonC {
 
     private Provider<AuthViewModel> authViewModelProvider;
 
-    private Provider<LogoutViewModel> logoutViewModelProvider;
-
     private ViewModelCImpl(SingletonCImpl singletonCImpl,
         ActivityRetainedCImpl activityRetainedCImpl, SavedStateHandle savedStateHandleParam,
         ViewModelLifecycle viewModelLifecycleParam) {
@@ -454,20 +443,15 @@ public final class DaggerOmgupsApplication_HiltComponents_SingletonC {
       return new AuthenticationUseCase(singletonCImpl.provideAuthRepositoryProvider.get());
     }
 
-    private LogoutUseCase logoutUseCase() {
-      return new LogoutUseCase(singletonCImpl.provideLogoutRepositoryProvider.get());
-    }
-
     @SuppressWarnings("unchecked")
     private void initialize(final SavedStateHandle savedStateHandleParam,
         final ViewModelLifecycle viewModelLifecycleParam) {
       this.authViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
-      this.logoutViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
     }
 
     @Override
     public Map<String, Provider<ViewModel>> getHiltViewModelMap() {
-      return MapBuilder.<String, Provider<ViewModel>>newMapBuilder(2).put("com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel", ((Provider) authViewModelProvider)).put("com.omgupsapp.presentation.ui.userProfileScreen.LogoutViewModel", ((Provider) logoutViewModelProvider)).build();
+      return Collections.<String, Provider<ViewModel>>singletonMap("com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel", ((Provider) authViewModelProvider));
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -493,9 +477,6 @@ public final class DaggerOmgupsApplication_HiltComponents_SingletonC {
         switch (id) {
           case 0: // com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel 
           return (T) new AuthViewModel(viewModelCImpl.getCsrfTokenUseCase(), viewModelCImpl.authenticationUseCase());
-
-          case 1: // com.omgupsapp.presentation.ui.userProfileScreen.LogoutViewModel 
-          return (T) new LogoutViewModel(viewModelCImpl.logoutUseCase());
 
           default: throw new AssertionError(id);
         }
@@ -582,10 +563,6 @@ public final class DaggerOmgupsApplication_HiltComponents_SingletonC {
 
     private Provider<AuthRepository> provideAuthRepositoryProvider;
 
-    private Provider<LogoutApi> logoutApiProvider;
-
-    private Provider<LogoutRepository> provideLogoutRepositoryProvider;
-
     private SingletonCImpl(ApplicationContextModule applicationContextModuleParam) {
       this.applicationContextModule = applicationContextModuleParam;
       initialize(applicationContextModuleParam);
@@ -597,12 +574,10 @@ public final class DaggerOmgupsApplication_HiltComponents_SingletonC {
       this.provideDataStoreManagerProvider = DoubleCheck.provider(new SwitchingProvider<DataStoreManager>(singletonCImpl, 0));
       this.authApiProvider = DoubleCheck.provider(new SwitchingProvider<AuthApi>(singletonCImpl, 2));
       this.provideAuthRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<AuthRepository>(singletonCImpl, 1));
-      this.logoutApiProvider = DoubleCheck.provider(new SwitchingProvider<LogoutApi>(singletonCImpl, 4));
-      this.provideLogoutRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<LogoutRepository>(singletonCImpl, 3));
     }
 
     @Override
-    public void injectOmgupsApplication(OmgupsApplication omgupsApplication) {
+    public void injectOmgupsApplication(OmgupsApplication arg0) {
     }
 
     @Override
@@ -642,12 +617,6 @@ public final class DaggerOmgupsApplication_HiltComponents_SingletonC {
 
           case 2: // com.omgupsapp.data.remote.AuthApi 
           return (T) AppModule_AuthApiFactory.authApi();
-
-          case 3: // com.omgupsapp.domain.repository.LogoutRepository 
-          return (T) AppModule_ProvideLogoutRepositoryFactory.provideLogoutRepository(singletonCImpl.logoutApiProvider.get(), singletonCImpl.provideDataStoreManagerProvider.get());
-
-          case 4: // com.omgupsapp.data.remote.LogoutApi 
-          return (T) AppModule_LogoutApiFactory.logoutApi();
 
           default: throw new AssertionError(id);
         }

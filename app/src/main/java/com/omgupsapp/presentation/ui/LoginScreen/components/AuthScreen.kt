@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -31,15 +30,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.omgupsapp.R
 import com.omgupsapp.presentation.Screen
 import com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel
-import com.omgupsapp.presentation.ui.userProfileScreen.composable.ErrorScreen
-import com.omgupsapp.presentation.ui.userProfileScreen.composable.LoadingScreen
 
 
 @Composable
@@ -173,7 +169,11 @@ fun AuthScreen(
                 }
                 LaunchedEffect(stateAuthentication) {
                     if (stateAuthentication.userAuthenticated == true) {
-                        navController.navigate(Screen.UserProfile.route)
+                        navController.navigate(Screen.HomeScreen.route){
+                            popUpTo(Screen.AuthScreen.route){
+                                inclusive = true
+                            }
+                        }
                     }
                     else if(stateAuthentication.userAuthenticated == false){
                         viewModel.isNotLoading()
@@ -204,33 +204,13 @@ fun AuthScreen(
                     .fillMaxWidth()
                     .padding(20.dp)
                     .align(CenterHorizontally),
-                textError = stateToken.error
+                textError = stateToken.error,
+                navController,
+                Screen.AuthScreen.route
             )
         }
     }
 }
 
-@Composable
-fun ErrorScreen(
-    modifier: Modifier, textError: String
-) {
-    Box(modifier = modifier) {
-        Text(
-            text = textError,
-            color = MaterialTheme.colorScheme.error,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp)
-                .align(Center)
-        )
-    }
-}
 
-@Composable
-fun LoadingScreen(
-    modifier: Modifier,
-) {
-    CircularProgressIndicator(modifier = modifier)
-}
 
