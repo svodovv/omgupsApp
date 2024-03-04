@@ -3,6 +3,7 @@ package com.omgupsapp.presentation.ui.homeScreen.components
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BadgedBox
@@ -29,18 +30,11 @@ import com.omgupsapp.R
 import com.omgupsapp.presentation.Screen
 import com.omgupsapp.presentation.theme.OmgupsAppTheme
 
-data class BottomNavigationItem(
-    val tittle: String, // Что будет написано в title
-    val route: String, // Путь до страницы
-    @DrawableRes val selectedIcon: Int,// Выбранный значёк
-    @DrawableRes val unselectedIcon: Int,//Не выбранный значек
-    val hasNews: Boolean, //Есть ли уведомление
-    val badeCount: Int? = null // Колличество уведомлений на странице
-)
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController, paddingValues: PaddingValues) {
     /*val itemsBottomBar = listOf(
         BottomNavigationItem(
             tittle = "Главная",
@@ -124,7 +118,7 @@ fun HomeScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            //.padding(it)
+            .padding(paddingValues)
             ,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -149,6 +143,6 @@ fun HomePage(navController: NavController) {
 @Composable
 fun HomeScreenPreview() {
     OmgupsAppTheme {
-        HomeScreen(navController = rememberNavController())
+        HomeScreen(navController = rememberNavController(), paddingValues = PaddingValues(20.dp))
     }
 }

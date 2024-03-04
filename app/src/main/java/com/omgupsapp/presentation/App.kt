@@ -1,33 +1,30 @@
 package com.omgupsapp.presentation
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.BadgedBox
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
+import androidx.annotation.DrawableRes
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
 import com.omgupsapp.R
 import com.omgupsapp.data.DataStoreManager
-import com.omgupsapp.presentation.navigation.NavControllerComposable
+import com.omgupsapp.presentation.activity.Scaffold.NavigationBarComposable
+import com.omgupsapp.presentation.activity.Scaffold.TopAppBarComposable
+import com.omgupsapp.presentation.navigation.NavHostComposable
 import com.omgupsapp.presentation.theme.OmgupsAppTheme
-import com.omgupsapp.presentation.ui.homeScreen.components.BottomNavigationItem
 
-@OptIn(ExperimentalMaterial3Api::class)
+
+data class BottomNavigationItem(
+    val tittle: String, // Что будет написано в title
+    val route: String, // Путь до страницы
+    @DrawableRes val selectedIcon: Int,// Выбранный значёк
+    @DrawableRes val unselectedIcon: Int,//Не выбранный значек
+    val hasNews: Boolean, //Есть ли уведомление
+    val badeCount: Int? = null // Колличество уведомлений на странице
+)
+
 @Composable
-fun App(dataStoreManager: DataStoreManager?, navController: NavHostController) {
+fun App(dataStoreManager: DataStoreManager, navController: NavHostController) {
     OmgupsAppTheme {
         val itemsBottomBar = listOf(
             BottomNavigationItem(
@@ -55,56 +52,22 @@ fun App(dataStoreManager: DataStoreManager?, navController: NavHostController) {
         val selectedItemIndex = rememberSaveable {
             mutableStateOf<Int>(0)
         }
-        Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
-            TopAppBar(title = {
-                Text(
-                    text = "Главная", style = MaterialTheme.typography.displayMedium
-                )
-            }, actions = {
-                IconButton(onClick = { /* НАВИГАЦИЯ ДО УВЕДОМЛЕНИЯ*/ }) {
-                    Icon(
-                        painterResource(id = R.drawable.sharp_android_30),
-                        contentDescription = "Notifications button"
-                    )
-                }
-                IconButton(onClick = { navController.navigate(Screen.LogOutScreen.route) }) {
-                    Icon(
-                        painterResource(id = R.drawable.round_settings_30),
-                        contentDescription = "Settings icon"
-                    )
-                }
-            })
-        }, bottomBar = {
-            NavigationBar {
-                itemsBottomBar.forEachIndexed { index, it ->
-                    NavigationBarItem(selected = false, onClick = {
-                        selectedItemIndex.value = index
-                        navController.navigate(it.route)
-                    }, label = { Text(text = it.tittle) }, icon = {
-                        BadgedBox(badge = {
-                            //Какое либо уведомление (как пометка о непрочитанных сообщениях)
-                        }) {
-                            Icon(
-                                painterResource(
-                                    id = if (index == selectedItemIndex.value) {
-                                        it.selectedIcon
-                                    } else it.unselectedIcon
-                                ), contentDescription = it.tittle
-                            )
-                        }
-                    })
-                }
-            }
 
-        }) {
-            NavControllerComposable(
-                navController = navController, dataStoreManager = dataStoreManager!!
+        Scaffold(
+            topBar = {
+                     TopAppBarComposable(navController = navController)
+            }, bottomBar = {
+                NavigationBarComposable(
+                    itemsBottomBar = itemsBottomBar,
+                    selectedItemIndex = selectedItemIndex,
+                    navController = navController
+                )
+            }) {paddingValues ->
+            NavHostComposable(
+                navController = navController,
+                dataStoreManager = dataStoreManager,
+                paddingValues
             )
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(it)
-            ) {}
         }
 
     }

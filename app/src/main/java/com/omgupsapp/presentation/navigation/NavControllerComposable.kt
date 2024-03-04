@@ -1,5 +1,10 @@
 package com.omgupsapp.presentation.navigation
 
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
@@ -18,8 +23,9 @@ import com.omgupsapp.presentation.ui.SheduleScreen.ScheduleScreen
 import com.omgupsapp.presentation.ui.userProfileScreen.composable.UserProfileScreen
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavControllerComposable(navController: NavHostController, dataStoreManager: DataStoreManager) {
+fun NavHostComposable(navController: NavHostController, dataStoreManager: DataStoreManager, paddingValues: PaddingValues) {
 
     val isLoggedIn = remember {
         mutableStateOf(false)
@@ -42,7 +48,12 @@ fun NavControllerComposable(navController: NavHostController, dataStoreManager: 
             startDestination = Screen.AuthScreen.route, route = NavigationGroup.AuthGroup.route
         ) {
             composable(route = Screen.AuthScreen.route) {
-                AuthScreen(navController = navController)
+                Scaffold(
+                    topBar = { TopAppBar(title = { Text(text = "For REAL?") }) }
+                ) {paddingValues ->
+                    AuthScreen(navController = navController,
+                        paddingValues = paddingValues)
+                }
             }
 
             /*
@@ -53,16 +64,16 @@ fun NavControllerComposable(navController: NavHostController, dataStoreManager: 
             startDestination = Screen.HomeScreen.route, route = NavigationGroup.HomeScreens.route
         ) {
             composable(route = Screen.LogOutScreen.route) {
-                LogoutScreen(navController = navController)
+                LogoutScreen(navController = navController, paddingValues)
             }
             composable(route = Screen.HomeScreen.route){
-                HomeScreen(navController = navController)
+                HomeScreen(navController = navController, paddingValues)
             }
             composable(route = Screen.ScheduleScreen.route){
-                ScheduleScreen(navController = navController)
+                ScheduleScreen(navController = navController, paddingValues)
             }
             composable(route = Screen.UserProfileScreen.route){
-                UserProfileScreen(navController = navController)
+                UserProfileScreen(navController = navController, paddingValues)
             }
         }
     }

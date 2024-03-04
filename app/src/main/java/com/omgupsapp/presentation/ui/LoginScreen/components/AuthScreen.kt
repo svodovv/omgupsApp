@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -40,7 +41,9 @@ import com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel
 
 @Composable
 fun AuthScreen(
-    viewModel: AuthViewModel = hiltViewModel(), navController: NavController
+    viewModel: AuthViewModel = hiltViewModel(),
+    navController: NavController,
+    paddingValues: PaddingValues
 ) {
     val stateToken = viewModel.stateToken.value
     val stateAuthentication = viewModel.stateAuthentication.value
@@ -57,7 +60,7 @@ fun AuthScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp),
+                .padding(paddingValues),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = CenterHorizontally
         ) {
