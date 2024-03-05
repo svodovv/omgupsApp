@@ -1,5 +1,6 @@
 package com.omgupsapp.presentation.ui.LoginScreen.components
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,6 +9,8 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
@@ -43,13 +46,11 @@ import com.omgupsapp.presentation.ui.LoginScreen.AuthViewModel
 fun AuthScreen(
     viewModel: AuthViewModel = hiltViewModel(),
     navController: NavController,
-    paddingValues: PaddingValues
 ) {
     val stateToken = viewModel.stateToken.value
     val stateAuthentication = viewModel.stateAuthentication.value
 
     var showError by remember { mutableStateOf(false) }
-
     if (stateToken.csrfToken) {
         if (stateAuthentication.isLoading && !showError) {
             Box( modifier = Modifier
@@ -60,7 +61,8 @@ fun AuthScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues),
+                .padding(16.dp)
+                ,
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = CenterHorizontally
         ) {

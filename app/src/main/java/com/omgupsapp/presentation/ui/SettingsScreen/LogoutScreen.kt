@@ -2,7 +2,6 @@ package com.omgupsapp.presentation.ui.SettingsScreen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,7 +21,6 @@ import com.omgupsapp.presentation.ui.LoginScreen.components.LoadingScreen
 @Composable
 fun LogoutScreen(
     navController: NavController,
-    paddingValues: PaddingValues,
     logOutViewModel: LogoutViewModel = hiltViewModel(),
     authViewModel: AuthViewModel = hiltViewModel()
 ) {
@@ -32,7 +30,7 @@ fun LogoutScreen(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
-            .padding(paddingValues),
+        ,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = CenterHorizontally
     ) {

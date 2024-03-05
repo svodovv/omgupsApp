@@ -1,15 +1,13 @@
 package com.omgupsapp.presentation
 
 import androidx.annotation.DrawableRes
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.navigation.NavHostController
 import com.omgupsapp.R
 import com.omgupsapp.data.DataStoreManager
-import com.omgupsapp.presentation.activity.Scaffold.NavigationBarComposable
-import com.omgupsapp.presentation.activity.Scaffold.TopAppBarComposable
+import com.omgupsapp.presentation.activity.Scaffold.ScaffoldComposable
 import com.omgupsapp.presentation.navigation.NavHostComposable
 import com.omgupsapp.presentation.theme.OmgupsAppTheme
 
@@ -53,22 +51,14 @@ fun App(dataStoreManager: DataStoreManager, navController: NavHostController) {
             mutableStateOf<Int>(0)
         }
 
-        Scaffold(
-            topBar = {
-                     TopAppBarComposable(navController = navController)
-            }, bottomBar = {
-                NavigationBarComposable(
-                    itemsBottomBar = itemsBottomBar,
-                    selectedItemIndex = selectedItemIndex,
-                    navController = navController
-                )
-            }) {paddingValues ->
+        ScaffoldComposable(
+            navController = navController,
+            itemsBottomBar = itemsBottomBar,
+            selectedItemIndex = selectedItemIndex ) {
             NavHostComposable(
                 navController = navController,
                 dataStoreManager = dataStoreManager,
-                paddingValues
             )
         }
-
     }
 }

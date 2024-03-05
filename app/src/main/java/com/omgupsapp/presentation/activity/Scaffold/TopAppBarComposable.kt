@@ -15,22 +15,24 @@ import com.omgupsapp.presentation.Screen
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBarComposable(navController: NavController){
-    TopAppBar(title = {
-        Text(
-            text = "Главная", style = MaterialTheme.typography.displayMedium
-        )
-    }, actions = {
-        IconButton(onClick = { /* НАВИГАЦИЯ ДО УВЕДОМЛЕНИЯ*/ }) {
-            Icon(
-                painterResource(id = R.drawable.sharp_android_30),
-                contentDescription = "Notifications button"
+    if (navController.currentDestination?.navigatorName != Screen.AuthScreen.route) {
+        TopAppBar(title = {
+            Text(
+                text = "Главная", style = MaterialTheme.typography.displayMedium
             )
-        }
-        IconButton(onClick = { navController.navigate(Screen.LogOutScreen.route) }) {
-            Icon(
-                painterResource(id = R.drawable.round_settings_30),
-                contentDescription = "Settings icon"
-            )
-        }
-    })
+        }, actions = {
+            IconButton(onClick = { /* НАВИГАЦИЯ ДО УВЕДОМЛЕНИЯ*/ }) {
+                Icon(
+                    painterResource(id = R.drawable.sharp_android_30),
+                    contentDescription = "Notifications button"
+                )
+            }
+            IconButton(onClick = { navController.navigate(Screen.LogOutScreen.route) }) {
+                Icon(
+                    painterResource(id = R.drawable.round_settings_30),
+                    contentDescription = "Settings icon"
+                )
+            }
+        })
+    }
 }
