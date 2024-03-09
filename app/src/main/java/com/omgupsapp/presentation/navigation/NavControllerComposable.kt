@@ -16,6 +16,7 @@ import com.omgupsapp.presentation.ui.SettingsScreen.LogoutScreen
 import com.omgupsapp.presentation.ui.SheduleScreen.ScheduleScreen
 import com.omgupsapp.presentation.ui.homeScreen.components.HomeScreen
 import com.omgupsapp.presentation.ui.userProfileScreen.composable.UserProfileScreen
+import kotlinx.coroutines.CoroutineScope
 
 
 @Composable
@@ -27,6 +28,7 @@ fun NavHostComposable(
     val isLoggedIn = remember {
         mutableStateOf(false)
     }
+
 
     LaunchedEffect(key1 = true) {
         dataStoreManager.getLoggedIn().collect {
@@ -68,6 +70,7 @@ fun NavHostComposable(
             composable(route = Screen.UserProfileScreen.route) {
                 UserProfileScreen(navController = navController)
             }
+
         }
     }
 }

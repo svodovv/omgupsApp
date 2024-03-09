@@ -10,17 +10,17 @@ import com.omgupsapp.presentation.Screen
 fun GetNavigationBar(
     route: String,
     itemsBottomBar: List<BottomNavigationItem>,
-    selectedItemIndex: MutableState<Int>,
-    navController: NavHostController
-): @Composable (() -> Unit) {
+    navController: NavHostController,
+    selectedTitle: MutableState<String>
+) {
     if (route == Screen.AuthScreen.route) {
-        return {}
-    } else
-        return {
+        //Ничего)
+    } else {
         NavigationBarComposable(
             itemsBottomBar = itemsBottomBar,
-            selectedItemIndex = selectedItemIndex,
-            navController = navController
+            navController = navController,
+            route = route,
+            selectedTitle = selectedTitle
         )
     }
 }

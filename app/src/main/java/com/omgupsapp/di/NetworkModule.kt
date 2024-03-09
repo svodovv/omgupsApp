@@ -2,6 +2,7 @@ package com.omgupsapp.di
 
 import com.omgupsapp.common.Constants
 import com.omgupsapp.data.DataStoreManager
+import com.omgupsapp.data.MyCookieJar
 import com.omgupsapp.data.remote.AuthApi
 import com.omgupsapp.data.remote.LogoutApi
 import com.omgupsapp.data.repository.AuthRepositoryImpl
@@ -21,7 +22,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object NetworkModule {
 
     @Provides
     @Singleton
@@ -34,7 +35,7 @@ object AppModule {
     fun provideOkHttpClient(cookieJar: MyCookieJar): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .cookieJar(cookieJar) // Добавляем MyCookieJar в OkHttpClient
+            .cookieJar(cookieJar)
             .build()
     }
 

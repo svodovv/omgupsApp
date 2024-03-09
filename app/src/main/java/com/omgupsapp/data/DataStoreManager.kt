@@ -27,7 +27,8 @@ class DataStoreManager @Inject constructor(val context: Context) {
         }
     }
 
-    companion object{
-        val isLoggedInKey = booleanPreferencesKey("isLoggedInKey")
+    companion object {
+        private val isLoggedInKey = booleanPreferencesKey("isLoggedInKey")
+
     }
 }
