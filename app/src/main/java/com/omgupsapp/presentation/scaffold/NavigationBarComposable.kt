@@ -1,4 +1,4 @@
-package com.omgupsapp.presentation.activity.Scaffold
+package com.omgupsapp.presentation.scaffold
 
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -34,7 +34,7 @@ fun NavigationBarComposable(
                     Text(
                         text = it.tittle,
                         color = if (it.route == route)
-                            MaterialTheme.colorScheme.primary.also {_ ->
+                            MaterialTheme.colorScheme.primary.also { _ ->
                                 selectedTitle.value = it.tittle
                             }
                         else Color.Unspecified

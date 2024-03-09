@@ -1,4 +1,4 @@
-package com.omgupsapp.presentation.activity.Scaffold
+package com.omgupsapp.presentation.scaffold
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -12,7 +12,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.omgupsapp.R
-import com.omgupsapp.presentation.BottomNavigationItem
 import com.omgupsapp.presentation.Screen
 import com.omgupsapp.presentation.theme.OmgupsAppTheme
 

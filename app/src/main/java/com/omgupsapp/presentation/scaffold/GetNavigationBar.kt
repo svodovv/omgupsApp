@@ -1,4 +1,4 @@
-package com.omgupsapp.presentation.activity.Scaffold
+package com.omgupsapp.presentation.scaffold
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState

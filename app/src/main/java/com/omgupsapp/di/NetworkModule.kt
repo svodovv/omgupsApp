@@ -1,5 +1,7 @@
 package com.omgupsapp.di
 
+import android.content.Context
+import com.omgupsapp.OmgupsApplication
 import com.omgupsapp.common.Constants
 import com.omgupsapp.data.DataStoreManager
 import com.omgupsapp.data.MyCookieJar
@@ -23,6 +25,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
 
     @Provides
     @Singleton

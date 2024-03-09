@@ -87,8 +87,4 @@ class AuthViewModel @Inject constructor(
     fun isNotLoading(){
         _stateAuthentication.value = _stateAuthentication.value.copy(isLoading = false)
     }
-    fun logOut(){
-        _stateAuthentication.value = _stateAuthentication.value.copy(userAuthenticated = null)
-    }
-
 }

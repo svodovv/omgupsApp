@@ -1,4 +1,4 @@
-package com.omgupsapp.data.remote
+package com.omgupsapp.data.remote.Retrofit
 
 import retrofit2.Response
 import retrofit2.http.Field

@@ -46,7 +46,9 @@ fun NavHostComposable(
     ) {
 
         navigation(
-            startDestination = Screen.AuthScreen.route, route = NavigationGroup.AuthGroup.route
+            startDestination = Screen.AuthScreen.route,
+             route = NavigationGroup.AuthGroup.route
+
         ) {
             composable(route = Screen.AuthScreen.route) {
                 AuthScreen(navController = navController)

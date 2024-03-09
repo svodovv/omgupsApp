@@ -1,9 +1,7 @@
-package com.omgupsapp.presentation.activity.Scaffold
+package com.omgupsapp.presentation.scaffold
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
-import com.omgupsapp.presentation.BottomNavigationItem
 import com.omgupsapp.presentation.Screen
 
 @Composable

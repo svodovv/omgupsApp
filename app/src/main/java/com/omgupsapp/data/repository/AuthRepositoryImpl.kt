@@ -3,7 +3,7 @@ package com.omgupsapp.data.repository
 import android.content.ContentValues.TAG
 import android.util.Log
 import com.omgupsapp.data.DataStoreManager
-import com.omgupsapp.data.remote.AuthApi
+import com.omgupsapp.data.remote.Retrofit.AuthApi
 import com.omgupsapp.domain.repository.AuthRepository
 import javax.inject.Inject
 
