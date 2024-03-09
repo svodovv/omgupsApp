@@ -3,8 +3,8 @@ package com.omgupsapp.di
 import com.omgupsapp.common.Constants
 import com.omgupsapp.data.DataStoreManager
 import com.omgupsapp.data.MyCookieJar
-import com.omgupsapp.data.remote.AuthApi
-import com.omgupsapp.data.remote.LogoutApi
+import com.omgupsapp.data.remote.Retrofit.AuthApi
+import com.omgupsapp.data.remote.Retrofit.LogoutApi
 import com.omgupsapp.data.repository.AuthRepositoryImpl
 import com.omgupsapp.data.repository.LogoutRepositoryImpl
 import com.omgupsapp.domain.repository.AuthRepository
